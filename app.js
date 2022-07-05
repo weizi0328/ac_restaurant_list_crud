@@ -3,12 +3,14 @@ const express = require('express')
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const restaurantList = require('./restaurant.json')
+const Restaurant = require('./models/restaurant')
+const bodyParser = require('body-parser')
 
 const port = 3000
 
 const app = express()
 
-mongoose.connect('process.env.MONGODB_URI', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // 資料庫相關
 const db = mongoose.connection
@@ -29,10 +31,28 @@ app.set('view engine', 'handlebars')
 // Setting static files 設定靜態檔案路由
 app.use(express.static('public'))
 
+app.use(bodyParser.urlencoded({ extended: true }))
+
 // Setting the route and corresponding response
 app.get('/', (req, res) => {
-  res.render('index', { restaurants: restaurantList.results })
+  Restaurant.find()
+    .lean()
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.error(error))
 })
+
+// 新增
+app.get('/restaurants/new', (req, res) => {
+  return res.render('new')
+})
+
+app.post('/restaurants', (req, res) => {
+  const name = req.body.name
+  return Restaurant.create({ name })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
 
 // Setting the route of search
 app.get('/search', (req, res) => {
