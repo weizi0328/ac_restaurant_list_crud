@@ -1,7 +1,6 @@
 {
   "name": "restaurant_list",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -16,5 +15,15 @@
     "express-handlebars": "^3.0.0",
     "handlebars": "^3.0.0",
     "mongoose": "^5.9.7"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weizi0328/ac_restaurant_list_crud.git"
+  },
+  "bugs": {
+    "url": "https://github.com/weizi0328/ac_restaurant_list_crud/issues"
+  },
+  "homepage": "https://github.com/weizi0328/ac_restaurant_list_crud#readme",
+  "description": ""
 }
