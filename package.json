@@ -16,7 +16,7 @@
     "express": "^4.18.1",
     "express-handlebars": "^4.0.2",
     "handlebars": "^3.0.0",
-    "mongoose": "^5.9.7"
+    "mongoose": "^5.13.14"
   },
   "devDependencies": {},
   "repository": {
