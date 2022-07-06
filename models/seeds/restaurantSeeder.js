@@ -17,7 +17,7 @@ const Restaurant = require('../restaurant')  // 載入 restaurant model
 //   console.log('done')
 // })
 
-mongoose.connect('mongodb+srv://alpha:camp@cluster0.2rlpc.mongodb.net/restaurant-list?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((mongoose) => {
     const db = mongoose.connection
     db.once('open', () => {
