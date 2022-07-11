@@ -1,4 +1,3 @@
-
 const express = require('express')
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
@@ -10,7 +9,8 @@ const port = 3000
 
 const app = express()
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+// mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://alpharestaurant:restaurantlist@cluster00.2rlpc.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
 
 // 資料庫相關
 const db = mongoose.connection
@@ -35,10 +35,13 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // Setting the route and corresponding response
 app.get('/', (req, res) => {
-  Restaurant.find()
-    .lean()
-    .then(restaurants => res.render('index', { restaurants }))
-    .catch(error => console.error(error))
+  // Restaurant.find()
+  //   .lean()
+  //   .then(restaurants => res.render('index', { restaurants }))
+  //   .catch(error => console.error(error))
+
+  //  載入 restaurant.json 的資料 (將外部資料帶入樣板引擎)
+  res.render('index', { restaurants: restaurantList.results })
 })
 
 // 新增
