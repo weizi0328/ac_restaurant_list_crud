@@ -32,14 +32,14 @@ app.get('/', (req, res) => {
     .catch(error => console.error(error))
 })
 
-// CRUD--Create
+// 新增一筆 restaurant 資料
 app.get('/restaurants/new', (req, res) => {
   return res.render('new')
 })
 
 app.post('/restaurants', (req, res) => {
-  const name = req.body.nameR
-  return Restaurant.create({ name: name })
+  console.log(req.body)
+  return Restaurant.create(req.body)
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })

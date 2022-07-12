@@ -1,4 +1,75 @@
-<form action="/restaurants" method="POST">
-  <input type="text" placeholder="name" name="nameR">
-  <button type="submit">Create</button>
-</form>
+<div class="container">
+
+  <form action="/restaurants" method="POST">
+
+    <div class="mb-3">
+      <label for="name" class="form-label">店名*</label>
+      <input type="text" class="form-control" id="name" placeholder="店名" name="name" aria-describedby="restaurantName">
+      <div id="nameNote" class="form-text">*星號項目為必填資訊</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="name_en" class="form-label">英文名稱</label>
+      <input type="text" class="form-control" id="name_en" placeholder="英文名稱" name="name_en"
+        aria-describedby="restaurantEnglishName">
+    </div>
+
+    <div class="mb-3">
+      <label for="category" class="form-label">類別*</label>
+      <input class="form-control" list="datalistOptions" id="category" placeholder="類別" name="category"
+        aria-describedby="restaurantCategory">
+      <datalist id="datalistOptions">
+        <option value="中式餐廳">
+        <option value="美式">
+        <option value="日本料理">
+        <option value="韓國料理">
+        <option value="中東料理">
+        <option value="義式餐廳">
+        <option value="酒吧">
+        <option value="咖啡">
+      </datalist>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">照片*</label>
+      <input type="text" class="form-control" id="image" placeholder="照片網址" name="image"
+        aria-describedby="restaurantImage">
+    </div>
+
+    <div class="mb-3">
+      <label for="location" class="form-label">地址*</label>
+      <input type="text" class="form-control" id="location" placeholder="地址" name="location"
+        aria-describedby="restaurantLocation">
+    </div>
+
+    <div class="mb-3">
+      <label for="phone" class="form-label">電話*</label>
+      <input type="number" class="form-control" id="phone" placeholder="電話" name="phone"
+        aria-describedby="restaurantPhone">
+    </div>
+
+    <div class="mb-3">
+      <label for="google_map" class="form-label">地圖</label>
+      <input type="text" class="form-control" id="google_map" placeholder="地圖網址" name="google_map"
+        aria-describedby="restaurantGoogleMap">
+    </div>
+
+    <div class="mb-3">
+      <label for="rating" class="form-label">評分*</label>
+      <input type="text" class="form-control" id="rating" placeholder="評分" name="rating"
+        aria-describedby="restaurantRating">
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">介紹</label>
+      <input type="text" class="form-control" id="description" placeholder="簡短敘述" name="description"
+        aria-describedby="restaurantDescription">
+    </div>
+
+    <button type="submit" class="btn btn-primary">送出！</button>
+    <button type="submit" class="btn btn-primary">返回首頁</button>
+    <button type="submit" class="btn btn-danger">重新填寫</button>
+
+  </form>
+
+</div>
