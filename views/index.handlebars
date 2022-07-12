@@ -7,7 +7,6 @@
           width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
         我的餐廳清單
       </a>
-      <a href="./restaurants/new">新增餐廳</a>
     </div>
   </nav>
 
@@ -29,9 +28,13 @@
         </div>
       </form>
     </div>
-
+    {{!-- Button 新增餐廳 --}}
+    <button type="button" class="btn btn-primary">新增餐廳</button>
   </div>
 </div>
+
+
+
 
 <!-- restaurant list -->
 <div class="container mt-5">
@@ -51,7 +54,7 @@
                 </div>
 
                 <span class="badge badge-pill badge-danger font-weight-normal">
-                  4.1
+                  {{this.rating}}
                   <i class="fas fa-star fa-xs"></i>
                 </span>
 

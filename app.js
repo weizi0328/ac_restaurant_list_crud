@@ -6,52 +6,40 @@ const Restaurant = require('./models/restaurant')
 const bodyParser = require('body-parser')
 
 const port = 3000
-
 const app = express()
 
+// mongoose 連線
+mongoose.connect('mongodb+srv://alpharestaurant:restaurantlist@cluster00.2rlpc.mongodb.net/restaurant-list?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
 // mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-mongoose.connect('mongodb+srv://alpharestaurant:restaurantlist@cluster00.2rlpc.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
-
-// 資料庫相關
 const db = mongoose.connection
+db.on('error', () => { console.log('mongodb error!') })
+db.once('open', () => { console.log('mongodb connected!') })
 
-db.on('error', () => {
-  console.log('mongodb error!')
-})
-
-db.once('open', () => {
-  console.log('mongodb connected!')
-})
-
-
-// Setting template engine
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
-
-// Setting static files 設定靜態檔案路由
 app.use(express.static('public'))
-
 app.use(bodyParser.urlencoded({ extended: true }))
 
-// Setting the route and corresponding response
-app.get('/', (req, res) => {
-  // Restaurant.find()
-  //   .lean()
-  //   .then(restaurants => res.render('index', { restaurants }))
-  //   .catch(error => console.error(error))
 
-  //  載入 restaurant.json 的資料 (將外部資料帶入樣板引擎)
-  res.render('index', { restaurants: restaurantList.results })
+// 分隔線
+
+
+// 瀏覽所有 Restaurants (首頁)
+app.get('/', (req, res) => {
+  Restaurant.find()
+    .lean()
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.error(error))
 })
 
-// 新增
+// CRUD--Create
 app.get('/restaurants/new', (req, res) => {
   return res.render('new')
 })
 
 app.post('/restaurants', (req, res) => {
-  const name = req.body.name
-  return Restaurant.create({ name })
+  const name = req.body.nameR
+  return Restaurant.create({ name: name })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
