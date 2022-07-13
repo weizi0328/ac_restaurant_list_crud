@@ -44,6 +44,37 @@ app.post('/restaurants', (req, res) => {
     .catch(error => console.log(error))
 })
 
+// 瀏覽特定一筆 restaurant 資料 (detail page)
+app.get('/restaurants/:id', (req, res) => {
+  const id = req.params.id
+  Restaurant.findById(id)
+    .lean()
+    .then(restaurants => res.render('detail', { restaurants }))
+    .catch(error => console.log(error))
+})
+
+// 修改特定一筆 restaurant 資料
+app.get('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then((restaurant) => res.render('edit', { restaurant }))
+    .catch(error => console.log(error))
+})
+
+app.post('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  const name = req.body.name
+  return Restaurant.findById(id)
+    .then(restaurant => {
+      restaurant.name = name
+      return restaurant.save()
+    })
+    .then(() => res.redirect(`/restaurants/${id}`))
+    .catch(error => console.log(error))
+})
+
+
 
 // Setting the route of search
 app.get('/search', (req, res) => {
@@ -52,15 +83,6 @@ app.get('/search', (req, res) => {
     return restaurant.name.toLowerCase().includes(keyword.toLowerCase()) || restaurant.category.toLowerCase().includes(keyword.toLowerCase())
   })
   res.render('index', { restaurants: restaurants, keyword: keyword })
-})
-
-// 瀏覽特定一筆 restaurant 資料 (show page)
-app.get('/restaurants/:id', (req, res) => {
-  const id = req.params.id
-  Restaurant.findById(id)
-    .lean()
-    .then(restaurants => res.render('detail', { restaurants }))
-    .catch(error => console.log(error))
 })
 
 
