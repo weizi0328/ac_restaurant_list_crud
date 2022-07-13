@@ -73,4 +73,4 @@ git clone https://github.com/weizi0328/ac_restaurant_list_crud
 
 ## Screenshot
 
-![alt text](http://url/to/img.png)
+![Home page](https://github.com/weizi0328/ac_restaurant_list_crud/blob/main/restaurant_CRUD_A7.jpg?raw=true)
