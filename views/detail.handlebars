@@ -38,6 +38,9 @@
         <a href="/restaurants/{{ restaurants._id }}/edit"><button
             class="btn btn-outline-secondary btn-sm">編輯</button></a>
         <a href="/"><button type="button" class="btn btn-outline-primary btn-sm">返回首頁</button></a>
+        <form action="/restaurants/{{restaurants._id}}/delete" method="POST">
+          <button type="submit" class="btn btn-outline-danger btn-sm">刪除</button>
+        </form>
       </div>
 
       <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurants.image}}" alt="{{restaurants.name}}"
