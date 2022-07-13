@@ -54,13 +54,13 @@ app.get('/search', (req, res) => {
   res.render('index', { restaurants: restaurants, keyword: keyword })
 })
 
-// Setting the route of "show" page
-app.get('/restaurants/:restaurant_id', (req, res) => {
-  console.log(req.params.restaurant_id)
-  const restaurant = restaurantList.results.find(function (restaurant) {
-    return restaurant.id.toString() === req.params.restaurant_id
-  })
-  res.render('show', { restaurants: restaurant })
+// 瀏覽特定一筆 restaurant 資料 (show page)
+app.get('/restaurants/:id', (req, res) => {
+  const id = req.params.id
+  Restaurant.findById(id)
+    .lean()
+    .then(restaurants => res.render('detail', { restaurants }))
+    .catch(error => console.log(error))
 })
 
 
