@@ -44,7 +44,6 @@ git clone https://github.com/weizi0328/ac_restaurant_list_crud
 3. Set environment variables
    ```
    export "MONGODB_URI=your connection string"
-
    ```
 4. Run the project
 
