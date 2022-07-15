@@ -41,21 +41,24 @@ git clone https://github.com/weizi0328/ac_restaurant_list_crud
    ```
    npm install
    ```
+3. Set environment variables
+   ```
+   export "MONGODB_URI=your connection string"
 
-3. Run the project
+   ```
+4. Run the project
 
    ```
    npm run start
    ```
 
-4. If you see the following line, the project is running. Open your browser and go to the following URL:
+5. If you see the following line, the project is running. Open your browser and go to the following URL:
 
    ```
    Express is running on http://localhost:3000
-
    ```
 
-5. Stop running the project:
+6. Stop running the project:
 
    ```
    ctrl + c
