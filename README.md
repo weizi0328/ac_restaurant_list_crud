@@ -33,31 +33,36 @@ IF YOU LIKE THIS WEBSITE, PLEASE DONATE MY BY PAYPAL: ankewang26@gmail.com
 ## Installing
 
 1. Clone the project to your localhost.
-```
-git clone https://github.com/weizi0328/ac_restaurant_list_crud
-```
+   ```
+   git clone https://github.com/weizi0328/ac_restaurant_list_crud
+   ```
 2. Go to the folder through your terminal and install npm (node package manager)
 
    ```
    npm install
    ```
 3. Set environment variables
+
    ```
    export "MONGODB_URI=your connection string"
    ```
-4. Run the project
+4. Seed the database
+   ```
+   npm run seed
+   ```
 
+5. Run the project
    ```
    npm run start
    ```
 
-5. If you see the following line, the project is running. Open your browser and go to the following URL:
+6. If you see the following line, the project is running. Open your browser and go to the following URL:
 
    ```
    Express is running on http://localhost:3000
    ```
 
-6. Stop running the project:
+7. Stop running the project:
 
    ```
    ctrl + c
