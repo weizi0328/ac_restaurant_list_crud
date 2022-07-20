@@ -63,10 +63,13 @@ app.get('/restaurants/:id/edit', (req, res) => {
 
 app.post('/restaurants/:id/edit', (req, res) => {
   const id = req.params.id
-  const name = req.body.name
+  const data = req.body
   return Restaurant.findById(id)
     .then(restaurant => {
-      restaurant.name = name
+      const columns = ['name', 'name_en', 'category', 'image', 'location', 'phone', 'google_map', 'description']
+      for (let i = 0; i < columns.length; i++) {
+        restaurant[columns[i]] = data[columns[i]]
+      }
       return restaurant.save()
     })
     .then(() => res.redirect(`/restaurants/${id}`))
