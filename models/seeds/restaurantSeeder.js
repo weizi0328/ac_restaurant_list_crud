@@ -1,13 +1,10 @@
-const mongoose = require('mongoose')
 const Restaurant = require('../restaurant')
+const db = require('../../config/mongoose')
+
 const restaurantList = require('../../restaurant.json').results
-// const restaurantSeeds = restaurantList['results']
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-const db = mongoose.connection
-db.on('error', (err) => { console.log('err: ', err) })
 
-// 觀摩 Bess 同學，Seeder 直接載入 restaurant.json 的 results 資料
+
 db.once('open', () => {
   console.log('running restaurantSeeder...')
 
