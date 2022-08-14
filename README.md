@@ -19,17 +19,6 @@ IF YOU LIKE THIS WEBSITE, PLEASE DONATE MY BY PAYPAL: ankewang26@gmail.com
 - User can delete restaurants.
 
 
-## Prerequisites
-
-- Body Parser @ 1.20.0
-- Bootstrap @ 5
-- Express @ 4.18.1
-- Express Handlebars @ 4.0.6
-- Handlebars @ 3.0.0
-- Mongoose @ 5.13.14
-- Node.js @ 14.16.0
-
-
 ## Installing
 
 1. Clone the project to your localhost.
@@ -70,13 +59,13 @@ IF YOU LIKE THIS WEBSITE, PLEASE DONATE MY BY PAYPAL: ankewang26@gmail.com
 
 ## Development tools
 
-- Node.js 14.16.0
-- Express 4.17.1
-- Express-Handlebars 5.3.5
-- Bootstrap 4.3.1
-- Font-awesome 5.8.1
-- MongoDB
-- mongoose 6.4.2
+- Body Parser @ 1.20.0
+- Bootstrap @ 5
+- Express @ 4.18.1
+- Express Handlebars @ 4.0.6
+- Handlebars @ 3.0.0
+- Mongoose @ 5.13.14
+- Node.js @ 14.16.0
 
 ## Screenshot
 
