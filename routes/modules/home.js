@@ -31,7 +31,7 @@ router.get('/search', (req, res) => {
             data.category.includes(keywordClearFormat)
           )
         })
-      res.render('index', { filterRestaurantData, keyword })
+      res.render('index', { restaurantData: filterRestaurantData, keyword })
     })
     .catch((error) => console.log(error))
 })
