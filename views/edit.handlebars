@@ -1,24 +1,24 @@
 <div class="container">
 
   <p class="form-text">*星號項目為必填資訊</p>
-  <form action="/restaurants/{{ restaurant._id }}?_method=PUT" method="POST">
+  <form action="/restaurants/{{ restaurantData._id }}?_method=PUT" method="POST">
 
     <div class="mb-3">
       <label for="name" class="form-label">店名*</label>
       <input type="text" minlength="1" maxlength="20" class="form-control" id="name" placeholder="店名" name="name"
-        value="{{ restaurant.name }}" aria-describedby="restaurantName" required>
+        value="{{ restaurantData.name }}" aria-describedby="restaurantName" required>
     </div>
 
     <div class="mb-3">
       <label for="name_en" class="form-label">英文名稱</label>
       <input type="text" class="form-control" id="name_en" placeholder="英文名稱" name="name_en"
-        value="{{ restaurant.name_en }}" aria-describedby=" restaurantEnglishName">
+        value="{{ restaurantData.name_en }}" aria-describedby=" restaurantEnglishName">
     </div>
 
     <div class="mb-3">
       <label for="category" class="form-label">類別*</label>
       <input class="form-control" list="datalistOptions" id="category" placeholder="類別" name="category"
-        value="{{ restaurant.category }}" aria-describedby=" restaurantCategory" required>
+        value="{{ restaurantData.category }}" aria-describedby=" restaurantCategory" required>
       <datalist id="datalistOptions">
         <option value="中式餐廳">
         <option value="美式">
@@ -33,32 +33,32 @@
 
     <div class="mb-3">
       <label for="image" class="form-label">照片*</label>
-      <input type="url" class="form-control" id="image" placeholder="照片網址" name="image" value="{{ restaurant.image }}"
-        aria-describedby=" restaurantImage" required>
+      <input type="url" class="form-control" id="image" placeholder="照片網址" name="image"
+        value="{{ restaurantData.image }}" aria-describedby=" restaurantImage" required>
     </div>
 
     <div class="mb-3">
       <label for="location" class="form-label">地址*</label>
       <input type="text" class="form-control" id="location" placeholder="地址" name="location"
-        value="{{ restaurant.location }}" aria-describedby=" restaurantLocation" required>
+        value="{{ restaurantData.location }}" aria-describedby=" restaurantLocation" required>
     </div>
 
     <div class="mb-3">
       <label for="phone" class="form-label">電話*</label>
-      <input type="tel" class="form-control" id="phone" placeholder="電話" name="phone" value="{{ restaurant.phone }}"
+      <input type="tel" class="form-control" id="phone" placeholder="電話" name="phone" value="{{ restaurantData.phone }}"
         aria-describedby=" restaurantPhone" required>
     </div>
 
     <div class="mb-3">
       <label for="google_map" class="form-label">地圖</label>
       <input type="url" class="form-control" id="google_map" placeholder="地圖網址" name="google_map"
-        value="{{ restaurant.google_map }}" aria-describedby=" restaurantGoogleMap">
+        value="{{ restaurantData.google_map }}" aria-describedby=" restaurantGoogleMap">
     </div>
 
     <div class="mb-3">
       <label for="rating" class="form-label">評分*</label>
       <input type="number" min="0" max="5" step="0.1" class="form-control" id="rating" placeholder="評分" name="rating"
-        value="{{ restaurant.rating }}" aria-describedby=" restaurantRating" required>
+        value="{{ restaurantData.rating }}" aria-describedby=" restaurantRating" required>
       <div id="ratingHelp" class="form-text">請輸入 1.0 - 5.0 之間的數字
       </div>
     </div>
@@ -66,7 +66,7 @@
     <div class="mb-3">
       <label for="description" class="form-label">介紹</label>
       <input type="text" class="form-control" id="description" placeholder="簡短敘述" name="description"
-        value="{{ restaurant.description }}" aria-describedby=" restaurantDescription">
+        value="{{ restaurantData.description }}" aria-describedby=" restaurantDescription">
     </div>
 
     <div class="text-center">
